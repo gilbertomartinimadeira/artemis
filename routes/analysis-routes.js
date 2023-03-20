@@ -8,10 +8,16 @@ const analysisDB = [
 	}];
 
 router.use(bodyParser.json());
+router.get('/proposal', (req, res) => {
+	res.send({message: 'API RESPONSE!!!'});
+});
 
-router.post('/proposal', (req,res) => {
 
-	var proposal = Proposal('11102768774');
+router.post('/proposal', (req, res) => {
+	debugger;
+	const value = req.body;
+
+	var proposal = Proposal(req.body);
 	
 	if(proposal.isValid())
 		res.send(proposal);

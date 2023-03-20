@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "swagger-autogen": "node swagger.js"
   },
@@ -17,5 +18,8 @@
     "gitignore": "^0.7.0",
     "swagger-autogen": "^2.23.1",
     "swagger-ui-express": "^4.6.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

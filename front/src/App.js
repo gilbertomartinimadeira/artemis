@@ -7,21 +7,37 @@ function App() {
   });
 
   React.useEffect(() => {
-    fetch("/analysis?identification=11102768774")
+    
+    debugger;
+    const postOptions = {      
+      method: 'POST',      
+      headers: { 'Content-Type': 'application/json' },      
+      body: { 'identification': '11102768774' }
+    };
+
+    const getOptions = {      
+      method: 'GET'              
+    };
+
+    fetch("/analysis/proposal/",  getOptions)
     .then(res => res.json())
-    .then(data => { 
-      debugger;
+    .then(data => {     
       console.log(data);
-      setAnalise((prevAnalise) => ({...prevAnalise, identification: data}) );
-    });    
+      setAnalise(prevAnalise => ({...prevAnalise, identification: data.message}) );
+    }).catch((error) => {
+      console.log(error);
+    }) 
   }, []);
+
+    const element = <p>{analise.identification}</p>
 
   return (
 
     <div className="App">
-      {analise && <p>{analise.identification}</p>}
+      {element}
     </div>
   );
-}
+};
+
 
 export default App;
