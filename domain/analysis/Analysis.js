@@ -1,5 +1,5 @@
 
-export default function Analysis (id, date, message, approved, proposal){
+module.exports = function Analysis (id, date, message, approved, proposal){
     return {
         id : id || 0,
         date: date || Date(),
